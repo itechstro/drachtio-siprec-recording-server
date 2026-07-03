@@ -94,7 +94,10 @@ test('siprec with multiple rtpengines', (t) => {
       t.end(err, 'error connecting to drachtio');
     });
   }) ;
-  test('siprec with freeswitch recorder', (t) => {
+  test.skip('siprec with freeswitch recorder', (t) => {
+    // Skipped: the Mitel integration uses direct dual-UAC to recorder@ and no
+    // longer exercises the hairpin B2BUA + X-Return-Token flow that the
+    // davehorton/freeswitch-hairpin test image implements.
     t.timeoutAfter(20000);
   
     clearRequire('..');
