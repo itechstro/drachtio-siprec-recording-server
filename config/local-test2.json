@@ -5,6 +5,12 @@
     "secret": "cymru"
   },
   "freeswitch" : ["172.32.0.4"],
+  "recorder": {
+    "fsAddress": "172.32.0.4",
+    "fsPort": 5060,
+    "fsUser": "recorder",
+    "fsPublicIp": "172.32.0.4"
+  },
   "redis" : {
     "host": "127.0.0.1",
     "port": 9379
