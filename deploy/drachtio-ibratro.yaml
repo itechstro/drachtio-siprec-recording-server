@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: siprec-ibratro
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: siprec-ibratro
+  template:
+    metadata:
+      labels:
+        app: siprec-ibratro
+    spec:
+      imagePullSecrets:
+      - name: ocir-pull-secret
+      containers:
+      # 1. Drachtio Server (Signaling)
+      - name: drachtio-server
+        image: docker.io/drachtio/drachtio-server:latest
+        args: ["drachtio", "--contact", "sip:*;transport=tcp,udp", "--loglevel", "info"]
+        # args: ["drachtio", "--contact", "sips:*;transport=tls", "--loglevel", "info"]
+        ports:
+        - containerPort: 5060
+          protocol: TCP
+        env:
+        - name: DRACHTIO_SECRET
+          value: "cymru"
+
+      # 2. SIPREC App (The one you just built)
+      - name: drachtio-srs
+        image:  sin.ocir.io/ax2doumptkcp/drachtio-srs:latest 
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/config/local.json
+          subPath: local.json
+        env:
+
+      # 3. Redis (State Store)
+      - name: redis
+        image: docker.io/redis:alpine
+        ports:
+        - containerPort: 6379
+
+      volumes:
+      - name: config-volume
+        configMap:
+          name: srs-config-ibratro
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: siprec-ibratro
+spec:
+  selector:
+    app: siprec-ibratro
+  ports:
+    - name: srs-tcp-ibratro
+      protocol: TCP
+      port: 20001
+      targetPort: 5060
+    - name: srs-udp-ibratro
+      protocol: UDP
+      port: 20001
+      targetPort: 5060
+  type: ClusterIP 

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: srs-config-stage
+data:
+  local.json: |
+    {
+      "drachtio": {
+        "host": "127.0.0.1",
+        "port": 9022,
+        "secret": "cymru"
+      },
+      "freeswitch": ["stage.talk.cloudplay.cloud"],
+      "recording": {
+        "method": "freeswitch"
+      },
+      "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+      },
+      "recorder": {
+        "fsAddress": "10.100.0.33",
+        "fsPort": 5060,
+        "fsUser": "recorder_stage",
+        "fsDomain": "stage.talk.cloudplay.cloud",
+        "fsPublicIp": "138.2.105.46"
+      }
+    }

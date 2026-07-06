@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: srs-udp-devel
+  namespace: talk
+spec:
+  entryPoints:
+    - srs-udp-devel
+  routes:
+    - services:
+      - name: siprec-devel
+        port: 20002
+

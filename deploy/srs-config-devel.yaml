@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: srs-config-devel
+data:
+  local.json: |
+    {
+      "drachtio": {
+        "host": "127.0.0.1",
+        "port": 9022,
+        "secret": "cymru"
+      },
+      "freeswitch": ["devel.talk.cloudplay.cloud"],
+      "recording": {
+        "method": "freeswitch"
+      },
+      "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+      },
+      "recorder": {
+        "fsAddress": "10.100.0.32",
+        "fsPort": 5060,
+        "fsUser": "recorder_devel",
+        "fsDomain": "devel.talk.cloudplay.cloud",
+        "fsPublicIp": "129.150.44.108"
+      }
+    }

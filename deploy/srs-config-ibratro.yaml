@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: srs-config-ibratro
+data:
+  local.json: |
+    {
+      "drachtio": {
+        "host": "127.0.0.1",
+        "port": 9022,
+        "secret": "cymru"
+      },
+      "freeswitch": ["ibratro.talk.cloudplay.cloud"],
+      "recording": {
+        "method": "freeswitch"
+      },
+      "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+      },
+      "recorder": {
+        "fsAddress": "10.100.0.30",
+        "fsPort": 5060,
+        "fsUser": "recorder_ibratro",
+        "fsDomain": "ibratro.talk.cloudplay.cloud",
+        "fsPublicIp": "213.35.127.143"
+      }
+    }

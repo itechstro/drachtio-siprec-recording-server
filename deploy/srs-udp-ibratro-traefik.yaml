@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: srs-udp-ibratro
+  namespace: talk
+spec:
+  entryPoints:
+    - srs-udp-ibratro
+  routes:
+    - services:
+      - name: siprec-ibratro
+        port: 20001
+
