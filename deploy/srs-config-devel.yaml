@@ -23,6 +23,8 @@ data:
         "fsPort": 5060,
         "fsUser": "recorder_devel",
         "fsDomain": "devel.talk.cloudplay.cloud",
+        "fsAuthUser": "77777",
+        "fsAuthPassword": "CHANGE_ME",
         "fsPublicIp": "129.150.44.108"
       }
     }

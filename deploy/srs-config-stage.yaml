@@ -23,6 +23,8 @@ data:
         "fsPort": 5060,
         "fsUser": "recorder_stage",
         "fsDomain": "stage.talk.cloudplay.cloud",
+        "fsAuthUser": "siprec",
+        "fsAuthPassword": "CHANGE_ME",
         "fsPublicIp": "138.2.105.46"
       }
     }

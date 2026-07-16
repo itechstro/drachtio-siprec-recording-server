@@ -23,6 +23,8 @@ data:
         "fsPort": 5060,
         "fsUser": "recorder_ibratro",
         "fsDomain": "ibratro.talk.cloudplay.cloud",
+        "fsAuthUser": "siprec",
+        "fsAuthPassword": "CHANGE_ME",
         "fsPublicIp": "213.35.127.143"
       }
     }
