@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: srs-config-neonet
+data:
+  local.json: |
+    {
+      "drachtio": {
+        "host": "127.0.0.1",
+        "port": 9022,
+        "secret": "cymru"
+      },
+      "freeswitch": ["neonet.talk.cloudplay.cloud"],
+      "recording": {
+        "method": "freeswitch"
+      },
+      "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+      },
+      "recorder": {
+        "fsAddress": "10.100.0.33",
+        "fsPort": 5060,
+        "fsUser": "neonet",
+        "fsDomain": "neonet.talk.cloudplay.cloud",
+        "fsAuthUser": "siprec",
+        "fsAuthPassword": "CHANGE_ME",
+        "fsPublicIp": "138.2.105.46"
+      }
+    }
