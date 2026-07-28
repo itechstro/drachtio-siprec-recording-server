@@ -19,12 +19,12 @@ data:
         "port": 6379
       },
       "recorder": {
-        "fsAddress": "10.100.0.33",
+        "fsAddress": "10.100.0.30",
         "fsPort": 5060,
-        "fsUser": "neonet",
+        "fsUser": "recorder_neonet",
         "fsDomain": "neonet.talk.cloudplay.cloud",
         "fsAuthUser": "siprec",
         "fsAuthPassword": "CHANGE_ME",
-        "fsPublicIp": "138.2.105.46"
+        "fsPublicIp": "213.35.127.143"
       }
     }
